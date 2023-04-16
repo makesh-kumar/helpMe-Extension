@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta https-equiv="Content-Security-Policy" content="default-src *;" />
+    <title>helpMe - ChatGPT Powered Chrome Extension</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 20px;
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .heading {
+            font-size: 15px;
+            padding: 10px;
+            border: 1px solid grey
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <p class="heading">helpMe - ⚡Powered by ChatGPT</p>
+    <label>How to use:</label>
+    <ul>
+        <li>
+            <p>
+                Please store your OpenAI API key in the local storage with the name 'openai-api-key'.
+            </p>
+            <p>Get you key from <a target="_blank" href="https://platform.openai.com/account/api-keys">here</a></p>
+        </li>
+        <li>
+            <p>Type your question by adding <b>helpMe:</b> at the beginning and <b>;</b> at the end</p>
+            <p>Example: <b> helpMe: Tell me a joke;</b></p>
+        </li>
+        <li>
+            <p>Your question will be automatically replaced by the answer from ChatGPT.</p>
+
+        </li>
+    </ul>
+</body>
+
+</html>
