@@ -2,21 +2,31 @@
     "name": "helpMe - ⚡Powered by ChatGPT",
     "description": "helpMe is a Chrome extension that utilizes the ChatGPT API to replace questions with answers.",
     "author": "Makesh",
-    "version": "0.0.1",
+    "version": "1.0.1",
     "manifest_version": 3,
-    "permissions": ["activeTab", "storage"],
-    "host_permissions": ["<all_urls>"],
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
     "action": {
         "default_popup": "index.html"
     },
-
-    "content_scripts": [{
-        "matches": ["<all_urls>"],
-        "runAt": "document_end",
-        "js": ["script.js"],
-        "all_frames": true
-    }],
-    "icons":{
-        "16":"help-icon 16.png"
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "runAt": "document_end",
+            "js": [
+                "script.js"
+            ],
+            "all_frames": true
+        }
+    ],
+    "icons": {
+        "16": "help-icon 16.png"
     }
 }
