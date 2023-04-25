@@ -1,6 +1,4 @@
-const API_KEY = localStorage.getItem('openai-api-key');
-
-const getResultFromChatGPT = async (inputText) => {
+const getResultFromChatGPT = async (inputText, API_KEY) => {
   try {
     const headers = new Headers();
     headers.set('Content-Type', 'application/json');
@@ -67,18 +65,26 @@ const getText = async (e) => {
     if (e.target.value) {
       parsedTxt = getParsedText(e.target.value);
       if (parsedTxt) {
-        e.target.value = await getResultFromChatGPT(parsedTxt.trim());
+        chrome.storage.sync.get(["openAiApiKey"], async function (result) {
+          if (result.openAiApiKey)
+            e.target.value = await getResultFromChatGPT(parsedTxt.trim(), result.openAiApiKey);
+          else
+            alert("OpenAI API key not found. Please enter it by opening the extension.")
+        })
       }
     }
   } else {
     parsedTxt = getParsedText(e.target.innerText);
     console.log('parsed - ', parsedTxt);
     if (parsedTxt) {
-      e.target.innerText = await getResultFromChatGPT(parsedTxt.trim());
+      chrome.storage.sync.get(["openAiApiKey"], async function (result) {
+        if (result.openAiApiKey)
+          e.target.innerText = await getResultFromChatGPT(parsedTxt.trim(), result.openAiApiKey);
+        else
+          alert("OpenAI API key not found. Please enter it by opening the extension.")
+      })
     }
   }
 };
 
-if (API_KEY) {
-  document.addEventListener('keypress', debounce(getText, 2000));
-}
+document.addEventListener('keypress', debounce(getText, 2000));
